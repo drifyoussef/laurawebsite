@@ -10,7 +10,7 @@ function FloatingHearts() {
           style={{
             left: `${(i * 8.3) % 100}%`,
             animationDuration: `${10 + (i % 5) * 3}s`,
-            animationDelay: `${i * 0.9}s`,
+            animationDelay: `${-(i * 1.7)}s`,
             fontSize: `${14 + (i % 4) * 8}px`,
           }}
         >
