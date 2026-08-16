@@ -391,7 +391,7 @@
     border-color 0.25s ease;
 }
 
-.life-grid--visible .life-chip {
+.life-chip--visible {
   opacity: 1;
   transform: translateY(0);
 }

@@ -107,9 +107,40 @@ const LIFE_REASONS = [
 
 const PARTICLE_OFFSETS = [8, 28, 50, 72, 90]
 
-function LifeReasons() {
+function LifeChip({ emoji, text, index }: { emoji: string; text: string; index: number }) {
   const { ref, visible } = useReveal<HTMLDivElement>()
 
+  return (
+    <div
+      ref={ref}
+      className={`life-chip ${visible ? 'life-chip--visible' : ''}`}
+      style={{ '--reveal-delay': `${(index % 8) * 40}ms` } as CSSProperties}
+    >
+      <span className="life-chip__emoji" aria-hidden="true">
+        {emoji}
+      </span>
+      <p>{text}</p>
+
+      <span className="life-chip__particles" aria-hidden="true">
+        {PARTICLE_OFFSETS.map((left, i) => (
+          <span
+            key={i}
+            className="life-chip__particle"
+            style={{
+              left: `${left}%`,
+              animationDelay: `${i * 0.35}s`,
+              fontSize: `${12 + (i % 3) * 4}px`,
+            }}
+          >
+            {emoji}
+          </span>
+        ))}
+      </span>
+    </div>
+  )
+}
+
+function LifeReasons() {
   return (
     <section id="raisons-de-vivre" className="life-reasons">
       <div className="container">
@@ -120,34 +151,9 @@ function LifeReasons() {
           as besoin qu’on te les rappelle.
         </p>
 
-        <div ref={ref} className={`life-grid ${visible ? 'life-grid--visible' : ''}`}>
+        <div className="life-grid">
           {LIFE_REASONS.map((reason, index) => (
-            <div
-              key={reason.text}
-              className="life-chip"
-              style={{ '--reveal-delay': `${Math.min(index, 40) * 25}ms` } as CSSProperties}
-            >
-              <span className="life-chip__emoji" aria-hidden="true">
-                {reason.emoji}
-              </span>
-              <p>{reason.text}</p>
-
-              <span className="life-chip__particles" aria-hidden="true">
-                {PARTICLE_OFFSETS.map((left, i) => (
-                  <span
-                    key={i}
-                    className="life-chip__particle"
-                    style={{
-                      left: `${left}%`,
-                      animationDelay: `${i * 0.35}s`,
-                      fontSize: `${12 + (i % 3) * 4}px`,
-                    }}
-                  >
-                    {reason.emoji}
-                  </span>
-                ))}
-              </span>
-            </div>
+            <LifeChip key={reason.text} index={index} {...reason} />
           ))}
         </div>
       </div>
