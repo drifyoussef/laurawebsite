@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n '\",$' /Users/youssef/Desktop/perso/Laura/laurawebsite/src/components/LifeReasons.tsx)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+:root {
+  --bg: #fff6f8;
+  --bg-alt: #ffecf2;
+  --pink-50: #fff0f5;
+  --pink-100: #ffd9e6;
+  --pink-200: #ffb8d2;
+  --pink-300: #ff8fb8;
+  --pink-400: #ff6fa0;
+  --pink-500: #f0568c;
+  --pink-600: #d94574;
+  --gold: #f6c667;
+  --text: #5a3244;
+  --text-soft: #9a6b7d;
+  --white: #ffffff;
+  --shadow: 0 12px 30px rgba(217, 69, 116, 0.12);
+  --radius: 20px;
+  --font-heading: 'Dancing Script', cursive;
+  --font-body: 'Quicksand', sans-serif;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--pink-200);
+  color: var(--pink-600);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pink-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-300);
+  border-radius: 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
